@@ -67,16 +67,8 @@ fs.readFile('package.json', function (err, data) {
         
         var destPath = __dirname + '\\node_modules';
         console.log('Destination path: '+destPath);
-        fs.symlink(searchDir, destPath, 'junction', function() {
+        fs.symlink(searchDir, destPath, 'dir', function() {
             console.log('Symlink created');
         });
-        
-        // var params = '/C "mklink /D /J node_modules ' + searchDir + '"';
-        // console.log("Make link params: " + params);
-        // var create_symlink = spawn('cmd', [params]);
-        // create_symlink.stdout.on('data', function(text) {console.log(text.toString())});
-        // create_symlink.stdout.on('end', function() {
-        //     console.log('Done creating symbolic link to ' + searchDir);
-        // });
     }
 });
